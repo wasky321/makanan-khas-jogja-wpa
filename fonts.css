@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/merriweather-v32-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/merriweather-v32-latin-700.woff2") format("woff2");
+}

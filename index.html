@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Membuat tampilan menjadi responsif, menyesuaikan ukuran layar perangkat -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="icons/favicon.png" type="image/png" />
+
+    <title>Beranda - Rasa Jogja</title>
+
+    <!-- Memuat Tailwind CSS: framework -->
+    <script src="tailwind.min.js"></script>
+
+    <!-- Mengimpor font Merriweather dari Google Fonts -->
+    <link rel="stylesheet" href="fonts.css" />
+
+    <style>
+      body {
+        font-family: "Merriweather", serif;
+        /* seluruh isi halaman pakai font Merriweather */
+      }
+    </style>
+  </head>
+
+  <body class="bg-orange-50 text-gray-900">
+    <!-- latar belakang berwarna oranye muda dan teks utama abu gelap -->
+    <header class="bg-white shadow p-4 flex justify-between items-center relative">
+      <!-- Header pakai latar putih, bayangan, padding, dan pakai Flexbox -->
+      <h1 class="text-2xl font-bold text-orange-700">Rasa Jogja</h1>
+      <!-- Judul/logo website -->
+
+      <!-- Tombol burger (ikon 3 garis) hanya muncul di layar kecil (mobile) -->
+      <button class="md:hidden text-orange-700" id="burger-button">
+        <!-- Ikon SVG burger -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Menu navigasi untuk layar besar -->
+      <nav class="hidden md:flex space-x-4" id="nav-menu">
+        <a href="index.html" class="hover:text-orange-600 font-semibold">Home</a>
+        <a href="jelajahi.html" class="hover:text-orange-600">Jelajahi</a>
+        <a href="kontak.html" class="hover:text-orange-600">Kontak</a>
+      </nav>
+
+      <!-- Menu navigasi untuk layar kecil (muncul saat burger diklik) -->
+      <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-md md:hidden">
+        <a href="index.html" class="block px-4 py-2 hover:bg-orange-50 font-semibold">Home</a>
+        <a href="jelajahi.html" class="block px-4 py-2 hover:bg-orange-50">Jelajahi</a>
+        <a href="kontak.html" class="block px-4 py-2 hover:bg-orange-50">Kontak</a>
+      </div>
+    </header>
+
+    <!-- HERO SECTION / Bagian perkenalan utama -->
+    <section class="text-center py-10 bg-orange-100">
+      <!-- Section dengan teks di tengah, padding atas bawah 10, latar oranye muda -->
+      <h2 class="text-4xl font-bold text-orange-800">Nikmati Cita Rasa Otentik Yogyakarta</h2>
+      <p class="mt-2 text-orange-700">Eksplorasi kuliner legendaris dari tanah Jawa</p>
+    </section>
+
+    <!-- MAIN CONTENT / Konten utama halaman -->
+    <main class="px-6 md:px-20 py-12">
+      <!-- Padding horizontal kecil di mobile, besar di layar besar, dan padding atas bawah -->
+      <h3 class="text-2xl font-semibold text-orange-800 mb-6">Makanan Khas</h3>
+
+      <!-- Daftar makanan disusun dalam bentuk grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Membuat grid 1 kolom di mobile, 2 kolom di layar sedang, 3 kolom di layar besar -->
+
+        <!-- Kartu pertama: Gudeg -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition duration-300">
+          <!-- Kartu dengan latar putih, bayangan, sudut membulat, dan efek hover -->
+          <a href="gudeg.html">
+            <!-- Klik kartu ini akan membuka halaman gudeg.html -->
+            <img src="gudeg2.jpg" alt="Gudeg" class="w-full h-48 object-cover" />
+            <!-- Gambar makanan gudeg -->
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-orange-800">Gudeg</h4>
+              <p class="text-gray-600 mt-2">Nangka muda dimasak dengan santan dan gula aren. Ikon rasa khas Jogja.</p>
+            </div>
+          </a>
+          <!-- Kontak Ulasan -->
+          <div class="p-4 border-t">
+            <textarea id="review-gudeg" placeholder="Tulis ulasan..." class="w-full border rounded p-2 text-sm"></textarea>
+            <button onclick="saveReview('gudeg')" class="mt-2 bg-orange-700 text-white px-3 py-1 rounded">Simpan Ulasan</button>
+            <p class="text-xs text-gray-500 mt-2">Ulasan Sebelumnya:</p>
+            <div id="display-review-gudeg" class="text-sm text-gray-700 max-h-16 overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+
+        <!-- Bakpia -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition duration-300">
+          <a href="bakpia.html">
+            <img src="bakpia.jpg" alt="Bakpia" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-orange-800">Bakpia</h4>
+              <p class="text-gray-600 mt-2">Kue kering berisi kacang hijau manis, oleh-oleh khas dari Jogja yang digemari.</p>
+            </div>
+          </a>
+          <!-- Kotak Ulasan -->
+          <div class="p-4 border-t">
+            <textarea id="review-bakpia" placeholder="Tulis ulasan..." class="w-full border rounded p-2 text-sm"></textarea>
+            <button onclick="saveReview('bakpia')" class="mt-2 bg-orange-700 text-white px-3 py-1 rounded">Simpan Ulasan</button>
+            <p class="text-xs text-gray-500 mt-2">Ulasan Sebelumnya:</p>
+            <div id="display-review-bakpia" class="text-sm text-gray-700 max-h-16 overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+
+        <!-- Sate Klatak -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition duration-300">
+          <a href="sate_klatak.html">
+            <img src="sate-klatak.jpg" alt="Sate Klatak" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-orange-800">Sate Klatak</h4>
+              <p class="text-gray-600 mt-2">Sate kambing unik yang hanya dibumbui garam dan dibakar di atas jeruji besi.</p>
+            </div>
+          </a>
+          <!-- Kotak Ulasan -->
+          <div class="p-4 border-t">
+            <textarea id="review-sate-klatak" placeholder="Tulis ulasan..." class="w-full border rounded p-2 text-sm"></textarea>
+            <button onclick="saveReview('sate-klatak')" class="mt-2 bg-orange-700 text-white px-3 py-1 rounded">Simpan Ulasan</button>
+            <p class="text-xs text-gray-500 mt-2">Ulasan Sebelumnya:</p>
+            <div id="display-review-sate-klatak" class="text-sm text-gray-700"></div>
+          </div>
+        </div>
+
+        <!-- Kopi Joss -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transform hover:scale-105 hover:shadow-2xl transition duration-300">
+          <a href="kopi-joss.html">
+            <img src="kopi-joss.jpg" alt="Kopi Joss" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h4 class="text-xl font-bold text-orange-800">Kopi Joss</h4>
+              <p class="text-gray-600 mt-2">Kopi hitam panas dengan arang membara yang khas dan aromatik.</p>
+            </div>
+          </a>
+          <!-- Kotak Ulasan -->
+          <div class="p-4 border-t">
+            <textarea id="review-kopi-joss" placeholder="Tulis ulasan..." class="w-full border rounded p-2 text-sm"></textarea>
+            <button onclick="saveReview('kopi-joss')" class="mt-2 bg-orange-700 text-white px-3 py-1 rounded">Simpan Ulasan</button>
+            <p class="text-xs text-gray-500 mt-2">Ulasan Sebelumnya:</p>
+            <div id="display-review-kopi-joss" class="text-sm text-gray-700"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t text-center py-6 text-sm text-gray-600">
+      <!-- Latar putih, garis atas, teks di tengah dan ukuran kecil -->
+      &copy; 2025 Rasa Jogja. Dibuat dengan cinta dari Yogyakarta.
+    </footer>
+
+    <!-- Script untuk membuka dan menutup menu burger saat di layar kecil -->
+    <script>
+      const burgerButton = document.getElementById("burger-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      burgerButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        // Jika menu tersembunyi, tampilkan. Jika sudah tampil, sembunyikan.
+      });
+    </script>
+
+    <script>
+      // Mengecek apakah browser mendukung service worker
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then((reg) => console.log("✅ Service Worker terdaftar!", reg))
+          .catch((err) => console.error("❌ Gagal daftar Service Worker:", err));
+      }
+    </script>
+    <!-- IndexedDB logic (external) -->
+    <script src="indexeddb.js" defer></script>
+  </body>
+</html>

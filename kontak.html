@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jelajahi - Rasa Jogja</title>
+    <script src="tailwind.min.js"></script>
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="icons/favicon.png" type="image/png" />
+
+    <style>
+      body {
+        font-family: "Merriweather", serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-orange-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-white shadow p-4 flex justify-between items-center relative">
+      <h1 class="text-2xl font-bold text-orange-700">Rasa Jogja</h1>
+      <button class="md:hidden text-orange-700" id="burger-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav class="hidden md:flex space-x-4" id="nav-menu">
+        <a href="index.html" class="hover:text-orange-600">Home</a>
+        <a href="jelajahi.html" class="hover:text-orange-600">Jelajahi</a>
+        <a href="kontak.html" class="hover:text-orange-600 font-semibold">Kontak</a>
+      </nav>
+      <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-md md:hidden">
+        <a href="index.html" class="block px-4 py-2 hover:bg-orange-50">Home</a>
+        <a href="jelajahi.html" class="block px-4 py-2 hover:bg-orange-50">Jelajahi</a>
+        <a href="kontak.html" class="block px-4 py-2 hover:bg-orange-50 font-semibold">Kontak</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="text-center py-10 bg-orange-100">
+      <h2 class="text-4xl font-bold text-orange-800">Kontak & Profil Penulis</h2>
+      <p class="mt-2 text-orange-700">Mari terhubung dan berbagi cerita kuliner Yogyakarta!</p>
+    </section>
+
+    <!-- Isi Konten -->
+    <main class="px-6 md:px-20 py-12 flex flex-col items-center">
+      <div class="bg-white shadow-lg rounded-xl p-8 w-full max-w-3xl">
+        <!-- Foto & nama -->
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+          <img src="Profil.JPG" alt="Foto Penulis" class="w-40 h-40 object-cover rounded-full shadow-md" />
+          <div>
+            <h3 class="text-2xl font-bold text-orange-800 mb-2">Uswatun Risky Lestari</h3>
+            <p class="text-gray-700 mb-4">
+              Mahasiswa Sistem Informasi Akuntansi yang suka mengulik kuliner Yogyakarta. Lewat <span class="font-semibold">Rasa Jogja</span>
+              , saya ingin berbagi cita rasa otentik Jogja kepada dunia.
+            </p>
+            <ul class="space-y-2 text-gray-800">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-700 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l1.523 2.286A2 2 0 006.236 13h11.528a2 2 0 001.713-.714L21 10M5 6h14M5 6l1-2h12l1 2" />
+                </svg>
+                <span>Email : <a href="mailto:uswatunlestari7@gmail.com" class="text-orange-700 hover:underline">uswatunlestari7@gamil.com</a></span>
+              </li>
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-700 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                </svg>
+                <span>Instagram : <a href="https://instagram.com/uuswa_skyesta" target="_blank" class="text-orange-700 hover:underline">@uuswa_skyesta</a></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t text-center py-6 text-sm text-gray-600">&copy; 2025 Rasa Jogja. Dibuat dengan cinta dari Yogyakarta.</footer>
+
+    <!-- Script Toggle Menu -->
+    <script>
+      const burgerButton = document.getElementById("burger-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      burgerButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+
+    <script>
+      // Mendaftarkan service worker
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .then((reg) => console.log("✅ Service Worker terdaftar!", reg))
+          .catch((err) => console.error("❌ Gagal daftar Service Worker:", err));
+      }
+    </script>
+    <!-- IndexedDB logic (external) -->
+    <script src="indexeddb.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jelajahi - Rasa Jogja</title>
+    <script src="tailwind.min.js"></script>
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="icons/favicon.png" type="image/png" />
+
+    <style>
+      body {
+        font-family: "Merriweather", serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-orange-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-white shadow p-4 flex justify-between items-center relative">
+      <h1 class="text-2xl font-bold text-orange-700">Rasa Jogja</h1>
+      <button class="md:hidden text-orange-700" id="burger-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <nav class="hidden md:flex space-x-4" id="nav-menu">
+        <a href="index.html" class="hover:text-orange-600">Home</a>
+        <a href="jelajahi.html" class="hover:text-orange-600 font-semibold">Jelajahi</a>
+        <a href="kontak.html" class="hover:text-orange-600">Kontak</a>
+      </nav>
+      <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-md md:hidden">
+        <a href="index.html" class="block px-4 py-2 hover:bg-orange-50">Home</a>
+        <a href="jelajahi.html" class="block px-4 py-2 hover:bg-orange-50 font-semibold">Jelajahi</a>
+        <a href="kontak.html" class="block px-4 py-2 hover:bg-orange-50">Kontak</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="text-center py-10 bg-orange-100">
+      <h2 class="text-4xl font-bold text-orange-800">Jelajahi Rasa Jogja</h2>
+      <p class="mt-2 text-orange-700">Kenali lebih dalam makanan legendaris Yogyakarta</p>
+    </section>
+
+    <!-- Konten Jelajahi -->
+    <main class="px-6 md:px-20 py-12">
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-orange-800">Apa Itu Kuliner Tradisional?</h3>
+          <p class="mt-2 text-gray-700">
+            Kuliner tradisional adalah bagian penting dari budaya suatu daerah, mencerminkan sejarah, bahan lokal, dan teknik memasak turun-temurun. Di Yogyakarta, setiap hidangan memiliki cerita dan
+            rasa yang khas.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-bold text-orange-800">Cara Menikmati Kuliner Jogja</h3>
+          <ul class="list-disc ml-6 text-gray-700 mt-2">
+            <li>Kunjungi pasar tradisional dan warung legendaris.</li>
+            <li>Ikuti tur kuliner malam hari di Malioboro.</li>
+            <li>Jangan takut mencoba jajanan kaki lima.</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t text-center py-6 text-sm text-gray-600">&copy; 2025 Rasa Jogja. Dibuat dengan cinta dari Yogyakarta.</footer>
+
+    <!-- Script Toggle Menu -->
+    <script>
+      const burgerButton = document.getElementById("burger-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      burgerButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
